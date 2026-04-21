@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thu Kinh Ao</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-bar">
+<span class="logo">OpticAR</span>
+<div class="header-right">
+<span id="statusBadge" class="badge">Chua bat camera</span>
+<button id="btnCamera" onclick="toggleCamera()">Bat Camera</button>
+</div>
+</header>
+
+<main class="layout">
+
+<div class="camera-box">
+<video id="video" autoplay muted playsinline></video>
+<canvas id="canvas"></canvas>
+<div id="placeholder">
+<p>Bam "Bat Camera" de bat dau</p>
+</div>
+</div>
+
+<aside class="panel">
+
+<div class="panel-section">
+<h2>Chon kinh</h2>
+<div class="glasses-grid" id="glassesGrid"></div>
+</div>
+
+<div class="panel-section">
+<h2>Phan tich</h2>
+<div class="face-row">
+<span class="face-label">Khuon mat</span>
+<span class="face-value" id="faceShape">-</span>
+</div>
+<div class="face-row">
+<span class="face-label">Goi y</span>
+<span class="face-value" id="goiY">-</span>
+</div>
+</div>
+
+<div class="panel-section">
+<button class="btn-shot" onclick="chupAnh()">Chup anh</button>
+</div>
+
+</aside>
+</main>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
