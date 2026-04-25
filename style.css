@@ -1,0 +1,171 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #faf8f4;
+  --ink: #1a1a1a;
+  --gold: #c9a96e;
+  --gold-lt: #f0e6d3;
+  --muted: #6b6b6b;
+  --border: #e8e2d9;
+  --radius: 10px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 28px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  background: #f0f0f0;
+  color: var(--muted);
+}
+.badge.found { background: #d4edda; color: #2d6a4f; }
+.badge.lost { background: #fde8d8; color: #b5451b; }
+.badge.detecting { background: #e8e8ff; color: #444499; }
+
+#btnCamera {
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+#btnCamera:hover { background: #333; }
+#btnCamera.off { background: #991b1b; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 20px;
+  padding: 20px 28px;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.camera-box {
+  position: relative;
+  background: #111;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  box-shadow: var(--shadow);
+}
+
+#video, #canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+#video { transform: scaleX(-1); }
+#canvas { z-index: 2; }
+
+#placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  z-index: 3;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.panel-section {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.panel-section h2 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.glasses-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.glasses-card {
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+.glasses-card:hover { border-color: var(--gold); background: var(--gold-lt); }
+.glasses-card.active { border-color: var(--ink); background: var(--ink); }
+.glasses-card img { width: 100%; max-height: 36px; object-fit: contain; margin-bottom: 4px; }
+.glasses-card .gname { font-size: 0.7rem; font-weight: 500; }
+.glasses-card.active .gname { color: #fff; }
+
+.face-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.82rem;
+}
+.face-row:last-child { border-bottom: none; }
+.face-label { color: var(--muted); }
+.face-value { font-weight: 600; color: var(--gold); }
+
+.btn-shot {
+  width: 100%;
+  padding: 10px;
+  background: var(--cream);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.btn-shot:hover { border-color: var(--gold); background: var(--gold-lt); }
+
+@media (max-width: 700px) {
+  .layout { grid-template-columns: 1fr; padding: 14px; }
+  .glasses-grid { grid-template-columns: repeat(3, 1fr); }
+}
