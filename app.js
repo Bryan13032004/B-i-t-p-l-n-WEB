@@ -42,10 +42,10 @@ async function toggleCamera() {
     video.srcObject = stream;
     await video.play();
     cameraOn = true;
-    btn.innerText = "Tat Camera";
+    btn.innerText = "Tắt Camera";
     btn.classList.add("off");
     ph.style.display = "none";
-    setBadge("detecting", "Dang nhan dien...");
+    setBadge("detecting", "Đang nhận diện...");
 
     if (!faceLandmarker) {
       var vision = await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm");
@@ -64,15 +64,14 @@ async function toggleCamera() {
     stream.getTracks().forEach(function(t) { t.stop(); });
     video.srcObject = null;
     cameraOn = false;
-    btn.innerText = "Bat Camera";
+    btn.innerText = "Bật Camera";
     btn.classList.remove("off");
     ph.style.display = "flex";
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    setBadge("", "Chua bat camera");
+    setBadge("", "Chưa bật camera");
   }
 }
 window.toggleCamera = toggleCamera;
-
 function loop() {
   if (!cameraOn) return;
 
@@ -90,11 +89,11 @@ function loop() {
       var result = faceLandmarker.detectForVideo(video, performance.now());
       if (result.faceLandmarks && result.faceLandmarks.length > 0) {
         var lm = result.faceLandmarks[0];
-        setBadge("found", "Nhan dien duoc");
+        setBadge("found", "Đã nhận diện");
         veKinh(lm);
         tinhFaceShape(lm);
       } else {
-        setBadge("lost", "Khong thay mat");
+        setBadge("lost", "Không thấy mặt");
       }
     }
   }
@@ -146,15 +145,15 @@ function tinhFaceShape(lm) {
 
   var shape, goiY;
   if (ratio > 1.5) {
-    shape = "Dai"; goiY = "Kinh tron, to ban";
+    shape = "Dài"; goiY = "Kinh tròn";
   } else if (foreheadW / jawW > 1.3) {
-    shape = "Trai tim"; goiY = "Kinh tron nhe, aviator";
+    shape = "Trái tim"; goiY = "Kinh tròn";
   } else if (Math.abs(foreheadW - jawW) / faceW < 0.1 && ratio < 1.1) {
-    shape = "Tron"; goiY = "Kinh vuong, chu nhat";
+    shape = "Tròn"; goiY = "Kinh vuông, chữ nhật";
   } else if (foreheadW / faceW > 0.85 && jawW / faceW > 0.85 && ratio < 1.3) {
-    shape = "Vuong"; goiY = "Kinh tron, oval";
+    shape = "Vuông"; goiY = "Kinh tròn";
   } else {
-    shape = "Oval"; goiY = "Hop voi nhieu kieu";
+    shape = "Oval"; goiY = "Hợp với nhiều kiểu kính";
   }
 
   document.getElementById("faceShape").innerText = shape;
