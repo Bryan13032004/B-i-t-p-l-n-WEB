@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thử Kính Ảo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-bar">
+<span class="logo">Thử Kính AR</span>
+<div class="header-right">
+<span id="statusBadge" class="badge">Chưa bật camera</span>
+<button id="btnCamera" onclick="toggleCamera()">Bật Camera</button>
+</div>
+</header>
+
+<main class="layout">
+
+<div class="camera-box">
+<video id="video" autoplay muted playsinline></video>
+<canvas id="canvas"></canvas>
+<div id="placeholder">
+<p>Bấm "Bật Camera" để bắt đầu</p>
+</div>
+</div>
+
+<aside class="panel">
+
+<div class="panel-section">
+<h2>Chọn Kính</h2>
+<div class="glasses-grid" id="glassesGrid"></div>
+</div>
+
+<div class="panel-section">
+<h2>Phân tích</h2>
+<div class="face-row">
+<span class="face-label">Khuôn mặt</span>
+<span class="face-value" id="faceShape">-</span>
+</div>
+<div class="face-row">
+<span class="face-label">gợi ý</span>
+<span class="face-value" id="goiY">-</span>
+</div>
+</div>
+
+<div class="panel-section">
+<button class="btn-shot" onclick="chupAnh()">Chụp ảnh</button>
+</div>
+
+</aside>
+</main>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
