@@ -32,7 +32,7 @@ B-i-t-p-l-n-WEB/
 │   ├── index.html
 │   ├── app.js              # Logic AI nhận diện khuôn mặt
 │   ├── style.css
-│   └── assets/             # Ảnh kính (kinh1.png, kinh2.png...)
+│   └── assets/             # Ảnh kính 
 ├── eyewear/                # Quản lý đơn hàng & toa kính
 │   ├── index.php
 │   ├── db_connection.php
