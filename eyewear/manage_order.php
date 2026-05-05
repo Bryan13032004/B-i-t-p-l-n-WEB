@@ -54,7 +54,7 @@ $orders = $conn->query($sql);
         <tr>
             <td>#<?php echo $row['order_id']; ?></td>
             <td><?php echo $row['customer_id']; ?></td>
-            <td><?php echo number_format($row['total_amount']); ?> VNĐ</td>
+            <td><?php echo number_format($row['total_price'] ?? 0); ?> VNĐ</td>
             <td><?php echo $row['status']; ?></td>
             <td>
                 <a class="btn" href="?action=confirm&id=<?php echo $row['order_id']; ?>&p_id=1">
