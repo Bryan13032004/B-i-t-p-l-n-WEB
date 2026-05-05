@@ -79,8 +79,6 @@ function edit_role($conn, $data) {
     } else {
         $error = $stmt->error;
         $stmt->close();
-        return ['success' => false, 'message' => 'Lỗi: ' . $error]mt->error;
-        $stmt->close();
         return ['success' => false, 'message' => 'Lỗi: ' . $error];
     }
 }

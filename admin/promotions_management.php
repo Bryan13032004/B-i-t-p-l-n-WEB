@@ -4,8 +4,8 @@ require '../db_connection.php';
 require '../admin_functions/promotions_functions.php';
 
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'Admin') {
-    header('Location: ../index.php');
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
+    header('Location: index.php');
     exit;
 }
 
@@ -55,7 +55,7 @@ if (isset($_GET['edit'])) {
             <h2>Admin Panel</h2>
             <ul>
                 <li><a href="dashboard.php">Trang Chủ</a></li>
-                <li><a href="../index.php">Quay lại</a></li>
+                <li><a href="../index.html">Quay lại</a></li>
             </ul>
         </nav>
 

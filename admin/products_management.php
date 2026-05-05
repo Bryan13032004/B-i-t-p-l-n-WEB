@@ -5,8 +5,8 @@ require '../admin_functions/categories_functions.php';
 require '../admin_functions/products_functions.php';
 
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'Admin') {
-    header('Location: ../index.php');
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
+    header('Location: index.php');
     exit;
 }
 
@@ -65,7 +65,7 @@ $products = get_all_products($conn);
                 <li><a href="categories_management.php">Quản lý Phân loại</a></li>
                 <li><a href="products_management.php">Quản lý Sản phẩm</a></li>
                 <li><a href="policies_and_configs.php">Chính sách & Cấu hình</a></li>
-                <li><a href="../index.php">Quay lại</a></li>
+                <li><a href="../index.html">Quay lại</a></li>
             </ul>
         </nav>
 

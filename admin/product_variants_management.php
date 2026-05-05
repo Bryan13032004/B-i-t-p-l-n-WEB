@@ -4,8 +4,8 @@ require '../db_connection.php';
 require '../admin_functions/products_functions.php';
 
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'Admin') {
-    header('Location: ../index.php');
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
+    header('Location: index.php');
     exit;
 }
 
@@ -72,7 +72,7 @@ $variants = get_variants_by_product($conn, $product_id);
                 <li><a href="dashboard.php">Trang Chủ</a></li>
                 <li><a href="products_management.php">Quản lý Sản phẩm</a></li>
                 <li><a href="categories_management.php">Quản lý Phân loại</a></li>
-                <li><a href="../index.php">Quay lại</a></li>
+                <li><a href="../index.html">Quay lại</a></li>
             </ul>
         </nav>
 

@@ -108,7 +108,7 @@ function add_order_item($conn, $order_id, $variant_id, $quantity, $unit_price) {
 }
 
 function get_all_orders($conn) {
-    $sql = "SELECT o.*, u.full_name as customer_name_user FROM orders o LEFT JOIN users u ON o.user_id = u.user_id ORDER BY o.order_date DESC";
+    $sql = "SELECT o.* FROM orders o ORDER BY o.order_date DESC";
     return $conn->query($sql);
 }
 

@@ -5,7 +5,7 @@ require '../db_connection.php';
 // Kiểm tra quyền admin
 session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
-    header('Location: ../index.php');
+    header('Location: index.php');
     exit;
 }
 
@@ -50,7 +50,7 @@ $stats['total_users'] = $result->fetch_assoc()['total_users'];
                 <li><a href="support_tickets_management.php">Ticket hỗ trợ</a></li>
                 <li><a href="shipments_management.php">Quản lý Vận chuyển</a></li>
                 <li><a href="policies_and_configs.php">Chính sách & Cấu hình</a></li>
-                <li><a href="../index.php">Quay lại</a></li>
+                <li><a href="../index.html">Quay lại</a></li>
             </ul>
         </nav>
 

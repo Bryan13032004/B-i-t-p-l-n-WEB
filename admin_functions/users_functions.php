@@ -94,8 +94,7 @@ function edit_user($conn, $data) {
     } else {
         $error = $stmt->error;
         $stmt->close();
-        return ['success' => false, 'message' => 'Lỗi: ' . $error]
-        $error = $stmt->error;
+        return ['success' => false, 'message' => 'Lỗi: ' . $error];
         $stmt->close();
         if (strpos($error, 'Duplicate entry') !== false) {
             return ['success' => false, 'message' => 'Email này đã được sử dụng'];

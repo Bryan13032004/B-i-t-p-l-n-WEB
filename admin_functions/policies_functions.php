@@ -77,8 +77,7 @@ function edit_policy($conn, $data) {
     } else {
         $error = $stmt->error;
         $stmt->close();
-        return ['success' => false, 'message' => 'Lỗi: ' . $error]
-        $error = $stmt->error;
+        return ['success' => false, 'message' => 'Lỗi: ' . $error];
         $stmt->close();
         return ['success' => false, 'message' => 'Lỗi: ' . $error];
     }

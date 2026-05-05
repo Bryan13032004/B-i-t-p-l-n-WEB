@@ -4,8 +4,8 @@ require '../db_connection.php';
 require '../admin_functions/support_tickets_functions.php';
 
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'Admin') {
-    header('Location: ../index.php');
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
+    header('Location: index.php');
     exit;
 }
 

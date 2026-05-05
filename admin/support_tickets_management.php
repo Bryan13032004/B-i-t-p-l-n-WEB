@@ -4,8 +4,8 @@ require '../db_connection.php';
 require '../admin_functions/support_tickets_functions.php';
 
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'Admin') {
-    header('Location: ../index.php');
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
+    header('Location: index.php');
     exit;
 }
 
@@ -59,7 +59,7 @@ $staff_result = $conn->query($staff_sql);
                 <li><a href="orders_management.php">Quản lý Đơn hàng</a></li>
                 <li><a href="support_tickets_management.php">Ticket hỗ trợ</a></li>
                 <li><a href="shipments_management.php">Vận chuyển</a></li>
-                <li><a href="../index.php">Quay lại</a></li>
+                <li><a href="../index.html">Quay lại</a></li>
             </ul>
         </nav>
 

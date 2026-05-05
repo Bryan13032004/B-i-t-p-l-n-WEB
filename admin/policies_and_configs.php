@@ -5,7 +5,7 @@ require '../admin_functions/policies_functions.php';
 
 session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
-    header('Location: ../index.php');
+    header('Location: index.php');
     exit;
 }
 
@@ -69,7 +69,7 @@ $policies = $conn->query($sql);
                 <li><a href="categories_management.php">Quản lý Phân loại</a></li>
                 <li><a href="products_management.php">Quản lý Sản phẩm</a></li>
                 <li><a href="policies_and_configs.php">Chính sách & Cấu hình</a></li>
-                <li><a href="../index.php">Quay lại</a></li>
+                <li><a href="../index.html">Quay lại</a></li>
             </ul>
         </nav>
 
